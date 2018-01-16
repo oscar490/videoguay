@@ -19,8 +19,8 @@ class SociosSearch extends Socios
     {
         return [
             [['id'], 'integer'],
+            [['numero', 'telefono'], 'number'],
             [['nombre', 'direccion'], 'safe'],
-            [['telefono'], 'number'],
         ];
     }
 
@@ -61,6 +61,7 @@ class SociosSearch extends Socios
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'numero' => $this->numero,
             'telefono' => $this->telefono,
         ]);
 

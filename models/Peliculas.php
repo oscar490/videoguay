@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "peliculas".
  *
  * @property int $id
+ * @property string $codigo
  * @property string $titulo
  * @property string $precio_alq
  *
@@ -29,9 +30,10 @@ class Peliculas extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['titulo', 'precio_alq'], 'required'],
-            [['precio_alq'], 'number'],
+            [['codigo', 'titulo', 'precio_alq'], 'required'],
+            [['codigo', 'precio_alq'], 'number'],
             [['titulo'], 'string', 'max' => 255],
+            [['codigo'], 'unique'],
         ];
     }
 
@@ -42,6 +44,7 @@ class Peliculas extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'codigo' => 'Codigo',
             'titulo' => 'Titulo',
             'precio_alq' => 'Precio Alq',
         ];

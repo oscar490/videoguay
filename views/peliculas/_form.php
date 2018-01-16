@@ -12,6 +12,8 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'codigo')->textInput() ?>
+
     <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'precio_alq')->textInput() ?>

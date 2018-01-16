@@ -19,8 +19,8 @@ class PeliculasSearch extends Peliculas
     {
         return [
             [['id'], 'integer'],
+            [['codigo', 'precio_alq'], 'number'],
             [['titulo'], 'safe'],
-            [['precio_alq'], 'number'],
         ];
     }
 
@@ -61,6 +61,7 @@ class PeliculasSearch extends Peliculas
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'codigo' => $this->codigo,
             'precio_alq' => $this->precio_alq,
         ]);
 

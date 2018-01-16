@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "socios".
  *
  * @property int $id
+ * @property string $numero
  * @property string $nombre
  * @property string $direccion
  * @property string $telefono
@@ -30,9 +31,10 @@ class Socios extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'direccion'], 'required'],
-            [['telefono'], 'number'],
+            [['numero', 'nombre', 'direccion'], 'required'],
+            [['numero', 'telefono'], 'number'],
             [['nombre', 'direccion'], 'string', 'max' => 255],
+            [['numero'], 'unique'],
         ];
     }
 
@@ -43,6 +45,7 @@ class Socios extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'numero' => 'Numero',
             'nombre' => 'Nombre',
             'direccion' => 'Direccion',
             'telefono' => 'Telefono',
