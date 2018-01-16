@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS socios CASCADE;
 CREATE TABLE socios
 (
     id        BIGSERIAL    PRIMARY KEY
+  , numero    NUMERIC(6)   NOT NULL UNIQUE
   , nombre    VARCHAR(255) NOT NULL
   , direccion VARCHAR(255) NOT NULL
   , telefono  NUMERIC(9)   CONSTRAINT ck_telefono_no_negativo
@@ -22,6 +23,7 @@ DROP TABLE IF EXISTS peliculas CASCADE;
 CREATE TABLE peliculas
 (
     id         BIGSERIAL    PRIMARY KEY
+  , codigo     NUMERIC(4)   NOT NULL UNIQUE
   , titulo     VARCHAR(255) NOT NULL
   , precio_alq NUMERIC(5,2) NOT NULL
 );
