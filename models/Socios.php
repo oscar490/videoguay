@@ -2,8 +2,6 @@
 
 namespace app\models;
 
-use Yii;
-
 /**
  * This is the model class for table "socios".
  *
@@ -45,9 +43,9 @@ class Socios extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'numero' => 'Numero',
+            'numero' => 'Número',
             'nombre' => 'Nombre',
-            'direccion' => 'Direccion',
+            'direccion' => 'Dirección',
             'telefono' => 'Telefono',
         ];
     }
