@@ -50,21 +50,21 @@ $this->params['breadcrumbs'][] = $this->title;
 
     ]) ?>
 
-    <table>
+    <table class='table'>
         <thead>
             <th>Código</th>
             <th>Título</th>
         </thead>
-        <?php foreach ($peliculas->all() as $pelicula) ?>
+        <?php foreach ($peliculas->all() as $pelicula):?>
             <tr>
                 <td>
-                    <?= Html::enconde($pelicula->codigo) ?>
+                    <?= Html::encode($pelicula->codigo) ?>
                 </td>
                 <td>
                     <?= Html::encode($pelicula->titulo) ?>
                 </td>
             </tr>
-        <?php endforeach ?>
+        <?php endforeach; ?>
     </table>
 
 
