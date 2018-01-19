@@ -1,12 +1,15 @@
 <?php
 
+use yii\data\ActiveDataProvider;
+use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Socios */
+/* @var $this      yii\web\View */
+/* @var $model     app\models\Socios */
+/* @var $peliculas app\models\Peliculas[] */
 
-$this->title = $model->id;
+$this->title = $model->nombre;
 $this->params['breadcrumbs'][] = ['label' => 'Socios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -28,12 +31,41 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
+            // 'id',
             'numero',
             'nombre',
             'direccion',
             'telefono',
         ],
     ]) ?>
+
+    <h3>Últimas películas alquiladas</h3>
+
+    <?= GridView::widget([
+        'dataProvider' => new ActiveDataProvider([
+            'query' => $peliculas,
+            'pagination' => false,
+            'sort' => false,
+        ]),
+
+    ]) ?>
+
+    <table>
+        <thead>
+            <th>Código</th>
+            <th>Título</th>
+        </thead>
+        <?php foreach ($peliculas->all() as $pelicula) ?>
+            <tr>
+                <td>
+                    <?= Html::enconde($pelicula->codigo) ?>
+                </td>
+                <td>
+                    <?= Html::encode($pelicula->titulo) ?>
+                </td>
+            </tr>
+        <?php endforeach ?>
+    </table>
+
 
 </div>
